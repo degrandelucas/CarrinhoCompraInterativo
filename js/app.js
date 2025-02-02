@@ -14,12 +14,14 @@ function adicionar(){
     let nomeProduto = divisaoTextoProduto[0];
     let precoProduto = parseFloat(divisaoTextoProduto[1]);
     let quantidade = parseInt(document.getElementById('quantidade').value);
-    
+    let subtotal = 0;
+
     if (!isNaN(quantidade) && quantidade > 0) { 
         let item = {
             quantidade: quantidade,
             produto: nomeProduto,
-            preco: precoProduto
+            preco: precoProduto,
+            subtotal: quantidade * precoProduto
         };
 
         listaProdutos.push(item); // Adiciona o objeto ao array
