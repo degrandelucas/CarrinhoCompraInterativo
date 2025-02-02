@@ -10,7 +10,23 @@ function limpar(){
 
 function adicionar(){
     let produtoSelecionado = document.getElementById('produto').value;
-    listaProdutos.push(produtoSelecionado);
-    let carrinho = document.getElementById('lista-produtos');
-    carrinho.innerHTML = listaProdutos.join('<br>');
+    let divisaoTextoProduto = produtoSelecionado.split(" - R$");
+    let nomeProduto = divisaoTextoProduto[0];
+    let precoProduto = parseFloat(divisaoTextoProduto[1]);
+    let quantidade = parseInt(document.getElementById('quantidade').value);
+    
+    if (!isNaN(quantidade) && quantidade > 0) { 
+        let item = {
+            quantidade: quantidade,
+            produto: nomeProduto,
+            preco: precoProduto
+        };
+
+        listaProdutos.push(item); // Adiciona o objeto ao array
+        console.log(listaProdutos); // Exibe a lista no console
+    } else {
+        alert("Digite uma quantidade válida!");
+    }
+    
+    // carrinho.innerHTML = listaProdutos.join('<br>');
 }
