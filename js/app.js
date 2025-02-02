@@ -1,0 +1,5 @@
+function limparCarrinho(){
+}
+
+function adicionarItemCarrinho(){
+}
