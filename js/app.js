@@ -1,7 +1,10 @@
+let valorTotal = 0;
+
 window.onload = function(){
     document.getElementById('lista-produtos').innerHTML = '';
     document.getElementById('valor-total').innerHTML = '';
     document.getElementById('quantidade').value = 0;
+    valorTotal = 0;
 }
 
 
@@ -10,6 +13,7 @@ function limpar(){
     let valorTotal = document.getElementById('valor-total');
     carrinho.innerHTML = '';
     valorTotal.innerHTML = '';
+    valorTotal = 0;
 }
 
 function adicionar(){
@@ -27,5 +31,9 @@ function adicionar(){
         </section>`;
     } else {
         alert("Digite uma quantidade válida!");
-    }    
+    }
+
+    valorTotal = valorTotal + subtotal;
+
+    document.getElementById('valor-total').innerHTML = `Total: R$${valorTotal}`;
 }
